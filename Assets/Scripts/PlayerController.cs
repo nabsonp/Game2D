@@ -71,6 +71,15 @@ public class PlayerController : MonoBehaviour
 		isGroundCheck = Physics2D.OverlapCircle(groundCheck.position, 0.02f);
 	}
 
+	void OnTriggerEnter2D(Collider2D col) {
+		if (col.gameObject.tag == "coleta") {
+			_GameController.playSFX(_GameController.sfxMoeda,0.5f);
+			Destroy(col.gameObject);
+		} else if (col.gameObject.tag == "enemy") {
+			print("Dano");
+		} 
+	}
+
     void Flip() {
 		isLookLeft = !isLookLeft;
 		float x = transform.localScale.x * -1;
@@ -83,7 +92,7 @@ public class PlayerController : MonoBehaviour
 
 	void hitBoxAtack() {
 		GameObject hitBoxTemp = Instantiate(hitBoxPrefab,mao.position, transform.localRotation);
-		Destroy(hitBoxTemp, 0.2f);
+		Destroy(hitBoxTemp, 0.5f);
 	}
 
 	void footStep() {

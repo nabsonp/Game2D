@@ -4,6 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - coleta
+  - enemy
+  - hitBox
   - hitBoxColider
   layers:
   - Default
@@ -14,9 +17,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
+  - Player
+  - Enemy
+  - Invencible
   - 
   - 
   - 
