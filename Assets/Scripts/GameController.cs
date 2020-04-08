@@ -9,6 +9,12 @@ public class GameController : MonoBehaviour
     public float speedCam;
     private Camera cam;
 
+    [Header("Audio")]
+    public AudioSource sfxSource, musicSource;
+
+    public AudioClip sfxJump, sfxAtack, sfxMoeda, sfxMorteInimigo, sfxDano;
+    public AudioClip[]  sfxStep;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +45,11 @@ public class GameController : MonoBehaviour
         Vector3 posCam = new Vector3(posicaoCamX, posicaoCamY, cam.transform.position.z);
         cam.transform.position = Vector3.Lerp(cam.transform.position, posCam, speedCam * Time.deltaTime);
     }
+
+    public void playSFX(AudioClip sfxClip, float volume) {
+        sfxSource.PlayOneShot(sfxClip,volume);
+    }
+
     void LateUpdate() {
         camController();
     }

@@ -49,10 +49,12 @@ public class PlayerController : MonoBehaviour
 		float speedY = playerRb.velocity.y;
 
 		if (Input.GetButtonDown("Jump") && isGroundCheck) {
+			_GameController.playSFX(_GameController.sfxJump,0.5f);
 			playerRb.AddForce(new Vector2(0,jumpForce));
 		}
 
 		if (Input.GetButtonDown("Fire1") && !isAtack) {
+			_GameController.playSFX(_GameController.sfxAtack,0.5f);
 			isAtack = true;
 			playerAnimator.SetTrigger("atack");
 		}
@@ -83,4 +85,8 @@ public class PlayerController : MonoBehaviour
 		GameObject hitBoxTemp = Instantiate(hitBoxPrefab,mao.position, transform.localRotation);
 		Destroy(hitBoxTemp, 0.2f);
 	}
+
+	void footStep() {
+        _GameController.playSFX(_GameController.sfxStep[Random.Range(0,_GameController.sfxStep.Length)],0.5f);
+    }
 }
