@@ -27,6 +27,7 @@ public class BatIA : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_GameController.currentState != GameController.gameState.GAMEPLAY);
 
 		if ( h > 0 && isLookLeft) {
 			Flip();

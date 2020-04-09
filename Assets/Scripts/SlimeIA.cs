@@ -28,6 +28,7 @@ public class SlimeIA : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_GameController.currentState != GameController.gameState.GAMEPLAY) return;
 
 		if ( h > 0 && isLookLeft) {
 			Flip();

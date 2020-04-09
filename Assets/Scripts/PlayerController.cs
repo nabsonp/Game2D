@@ -36,6 +36,12 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		playerAnimator.SetBool("isGrounded",isGroundCheck);
+		if (_GameController.currentState != GameController.gameState.GAMEPLAY) {
+			playerRb.velocity = new Vector2(0,playerRb.velocity.y);
+			playerAnimator.SetInteger("h",0);
+			return;
+		}
         float h = Input.GetAxisRaw("Horizontal");
 		// Esquerda = -1
 		// Direita = 1
@@ -67,7 +73,6 @@ public class PlayerController : MonoBehaviour
 		playerRb.velocity = new Vector2(h * speed, speedY);
 
 		playerAnimator.SetInteger("h",(int) h);
-		playerAnimator.SetBool("isGrounded",isGroundCheck);
 		playerAnimator.SetFloat("speedY",speedY);
 		playerAnimator.SetBool("isAtack",isAtack);
     }
@@ -79,9 +84,11 @@ public class PlayerController : MonoBehaviour
 	void OnTriggerEnter2D(Collider2D col) {
 		if (col.gameObject.tag == "coleta") {
 			_GameController.playSFX(_GameController.sfxMoeda,0.5f);
+			_GameController.getCoin();
 			Destroy(col.gameObject);
 		} else if (col.gameObject.tag == "enemy") {
 			StartCoroutine("damageController");
+			if (_GameController.vida > 0) StartCoroutine("damageController");
 		} 
 	}
 
