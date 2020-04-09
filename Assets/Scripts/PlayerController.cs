@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D playerRb;
     private Animator playerAnimator;
 	private bool isAtack;
+	private SpriteRenderer playerSR;
 
     public float speed, jumpForce;
     public bool isLookLeft;
@@ -17,6 +18,8 @@ public class PlayerController : MonoBehaviour
 	public Transform mao;
 	public Transform groundCheck;
 	private bool isGroundCheck;
+	public Color hitColor, noHitColor;
+	public int maxHP;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +29,8 @@ public class PlayerController : MonoBehaviour
 
 		_GameController = FindObjectOfType(typeof(GameController)) as GameController;
 		_GameController.playerTransform = this.transform;
+
+		playerSR = GetComponent<SpriteRenderer>();
 	}
 
     // Update is called once per frame
@@ -76,7 +81,7 @@ public class PlayerController : MonoBehaviour
 			_GameController.playSFX(_GameController.sfxMoeda,0.5f);
 			Destroy(col.gameObject);
 		} else if (col.gameObject.tag == "enemy") {
-			print("Dano");
+			StartCoroutine("damageController");
 		} 
 	}
 
@@ -98,4 +103,23 @@ public class PlayerController : MonoBehaviour
 	void footStep() {
         _GameController.playSFX(_GameController.sfxStep[Random.Range(0,_GameController.sfxStep.Length)],0.5f);
     }
+
+	IEnumerator damageController() {
+		this.gameObject.layer = LayerMask.NameToLayer("Invencible");
+		if (--maxHP <= 0) {
+			Debug.LogError("GameOver");
+		}
+		_GameController.playSFX(_GameController.sfxDano,0.5f);
+		playerSR.color = hitColor;
+		yield return new WaitForSeconds(0.3f);
+		playerSR.color = noHitColor;
+		for(int i=0; i<5; i++) {
+			playerSR.enabled = false;
+			yield return new WaitForSeconds(0.2f);
+			playerSR.enabled = true;
+			yield return new WaitForSeconds(0.2f);
+		}
+		playerSR.color = Color.white;
+		this.gameObject.layer = LayerMask.NameToLayer("Player");
+	}
 }
