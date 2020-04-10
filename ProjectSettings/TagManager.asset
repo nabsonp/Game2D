@@ -8,6 +8,7 @@ TagManager:
   - enemy
   - hitBox
   - hitBoxColider
+  - bandeira
   layers:
   - Default
   - TransparentFX

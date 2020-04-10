@@ -19,7 +19,6 @@ public class PlayerController : MonoBehaviour
 	public Transform groundCheck;
 	private bool isGroundCheck;
 	public Color hitColor, noHitColor;
-	public int maxHP;
 
     // Start is called before the first frame update
     void Start()
@@ -87,9 +86,10 @@ public class PlayerController : MonoBehaviour
 			_GameController.getCoin();
 			Destroy(col.gameObject);
 		} else if (col.gameObject.tag == "enemy") {
-			StartCoroutine("damageController");
 			if (_GameController.vida > 0) StartCoroutine("damageController");
-		} 
+		} else if (col.gameObject.tag == "bandeira") {
+			_GameController.theEnd();
+		}
 	}
 
     void Flip() {
@@ -113,9 +113,7 @@ public class PlayerController : MonoBehaviour
 
 	IEnumerator damageController() {
 		this.gameObject.layer = LayerMask.NameToLayer("Invencible");
-		if (--maxHP <= 0) {
-			Debug.LogError("GameOver");
-		}
+		_GameController.getHit();
 		_GameController.playSFX(_GameController.sfxDano,0.5f);
 		playerSR.color = hitColor;
 		yield return new WaitForSeconds(0.3f);

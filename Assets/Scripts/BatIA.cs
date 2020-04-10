@@ -27,7 +27,7 @@ public class BatIA : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_GameController.currentState != GameController.gameState.GAMEPLAY);
+        if (_GameController.currentState != GameController.gameState.GAMEPLAY) return;
 
 		if ( h > 0 && isLookLeft) {
 			Flip();
@@ -40,11 +40,11 @@ public class BatIA : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D col) {
 		if (col.gameObject.tag == "hitBox") {
+            Destroy(hitbox);
             h=0;
             StopCoroutine("slimeFly");
 			_GameController.playSFX(_GameController.sfxMorteInimigo,0.2f);
 			batAnimator.SetTrigger("dead");
-            Destroy(hitbox);
 		}
 	}
 

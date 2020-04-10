@@ -46,10 +46,11 @@ public class SlimeIA : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D col) {
 		if (col.gameObject.tag == "hitBox") {
+            Destroy(hitbox);
+		    this.gameObject.layer = LayerMask.NameToLayer("Invencible");
             h=0;
             StopCoroutine("slimeWalk");
 			_GameController.playSFX(_GameController.sfxMorteInimigo,0.2f);
-            Destroy(hitbox);
 			slimeAnimator.SetTrigger("dead");
 		}
 	}

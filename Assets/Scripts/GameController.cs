@@ -15,6 +15,7 @@ public class GameController : MonoBehaviour
     public AudioSource sfxSource, musicSource;
 
     public AudioClip sfxJump, sfxAtack, sfxMoeda, sfxMorteInimigo, sfxDano;
+    public AudioClip musicEnd, musicGameOver;
     public AudioClip[]  sfxStep;
 
     public enum gameState{
@@ -86,6 +87,7 @@ public class GameController : MonoBehaviour
         if (vida < 1) {
             playerTransform.gameObject.SetActive(false);
             panelOver.SetActive(true);
+            trocarMusica(musicGameOver);
             currentState = gameState.GAMEOVER;
         }
     } 
@@ -97,6 +99,17 @@ public class GameController : MonoBehaviour
 
     void LateUpdate() {
         camController();
+    }
+
+    public void theEnd() {
+        currentState = gameState.END;
+        trocarMusica(musicEnd);
+        panelEnd.SetActive(true);
+    }
+
+    public void trocarMusica(AudioClip music) {
+        musicSource.clip = music;
+        musicSource.Play();
     }
 }
 

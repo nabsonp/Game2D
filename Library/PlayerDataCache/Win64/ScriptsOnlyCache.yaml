@@ -19,15 +19,21 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
+    UnityEngine.UI.dll:
+    - UnityEngine.EventSystems.EventSystem
+    - UnityEngine.EventSystems.StandaloneInputModule
+    - UnityEngine.UI.CanvasScaler
+    - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.Image
+    - UnityEngine.UI.Shadow
+    - UnityEngine.UI.Text
   sceneClasses:
     Assets/Scenes/SampleScene.unity:
     - Class: 1
@@ -67,16 +73,32 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
+      Script: {instanceID: 11170}
+    - Class: 114
+      Script: {instanceID: 11456}
+    - Class: 114
+      Script: {instanceID: 11510}
+    - Class: 114
       Script: {instanceID: 12048}
     - Class: 114
-      Script: {instanceID: 13144}
+      Script: {instanceID: 12052}
     - Class: 114
-      Script: {instanceID: 16056}
+      Script: {instanceID: 12172}
     - Class: 114
-      Script: {instanceID: 32006}
+      Script: {instanceID: 12410}
     - Class: 114
-      Script: {instanceID: 60298}
+      Script: {instanceID: 12946}
+    - Class: 114
+      Script: {instanceID: 13148}
+    - Class: 114
+      Script: {instanceID: 13628}
+    - Class: 114
+      Script: {instanceID: 13706}
+    - Class: 114
+      Script: {instanceID: 14240}
     - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
@@ -85,6 +107,12 @@ ScriptsOnlyBuild:
     - Class: 212
       Script: {instanceID: 0}
     - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
       Script: {instanceID: 0}
     - Class: 251
       Script: {instanceID: 0}
@@ -265,7 +293,7 @@ ScriptsOnlyBuild:
     className: Mask
   - hash:
       serializedVersion: 2
-      Hash: b9589b5f5553bc654d76e86b52ae4c98
+      Hash: b7a7744787cf05f1a1a78d4856949cb3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerController
@@ -317,6 +345,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Selectable
+  - hash:
+      serializedVersion: 2
+      Hash: eab8ea9c57e8fb58fe92accf931811c6
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SlimeIA
   - hash:
       serializedVersion: 2
       Hash: b3ab2106268377ffe25dd18ac23dca28
@@ -373,6 +407,12 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
+      Hash: 424167969752cf0956ae61188349144f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Parallax
+  - hash:
+      serializedVersion: 2
       Hash: 5ad4aa237d47ac2bab17bacb672edf7a
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -385,7 +425,7 @@ ScriptsOnlyBuild:
     className: SpriteSkin
   - hash:
       serializedVersion: 2
-      Hash: af015fde7247fa95a2bbb0ec0f6293e0
+      Hash: b861a75cee358af00d351c526df2f7d5
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameController
@@ -467,6 +507,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools
     className: BeforeAfterTestCommandState
+  - hash:
+      serializedVersion: 2
+      Hash: 4f05d46586829e4cd57243d939511bfb
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BatIA
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -575,25 +621,7 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 424167969752cf0956ae61188349144f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Parallax
-  - hash:
-      serializedVersion: 2
-      Hash: eab8ea9c57e8fb58fe92accf931811c6
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: SlimeIA
-  - hash:
-      serializedVersion: 2
-      Hash: 4f05d46586829e4cd57243d939511bfb
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: BatIA
   platform: 19
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: /home/nabson/MiniCurso2D/Jogo_Windows/MiniCurso2D.exe
+  playerPath: /home/nabson/MiniCurso2D/Jogo_Windows/SuperAdventure.exe
