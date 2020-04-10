@@ -6452,7 +6452,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Pressione as teclas ASDW ou setas para movimenta\xE7ao do personagem."
+  m_Text: "Pressione as teclas A/D ou setas para movimenta\xE7ao do personagem."
 --- !u!222 &1273366049
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7628,7 +7628,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -870, y: -73}
+  m_AnchoredPosition: {x: -910, y: -73}
   m_SizeDelta: {x: 1500, y: 200}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1605428573
@@ -7662,7 +7662,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ASDW
+  m_Text: A/D
 --- !u!222 &1605428574
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8736,7 +8736,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -630, y: -73}
+  m_AnchoredPosition: {x: -705, y: -73}
   m_SizeDelta: {x: 1500, y: 200}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1838774946
